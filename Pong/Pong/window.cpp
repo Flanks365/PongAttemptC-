@@ -1,7 +1,7 @@
 #include <windows.h>
+#include "Utilitiess.cpp"
 
-
-bool run = true;
+global_variable bool run = true;
 
 struct Render_State{
     int height, width;
@@ -10,9 +10,10 @@ struct Render_State{
     BITMAPINFO bitmap_info;
 };
 
-Render_State render_state;
+global_variable Render_State render_state;
 
 #include "renderer.cpp"
+
 
 
 //on interaction with indow, this gets called
@@ -78,9 +79,9 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int  
             DispatchMessage(&message);
         }
         //Simpulate (changes background color)
-        render_background();
         clear_screen(0xff00ff);
-        draw_rect(50,50,200,500,0xff000f);
+        draw_rect(0,0,.2,.2,0xff000f);
+        draw_rect(.3, .3, .05, .05, 0xff000f);
 
 
         //Render
